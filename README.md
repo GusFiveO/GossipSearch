@@ -13,11 +13,11 @@ Gossip Search is a full-stack web application that leverages semantic search to 
 
 ## Screenshots
 
-![Website Screenshot](path/to/website-screenshot.png)
-*Screenshot of the Gossip Search website.*
+Screenshot of the Gossip Search website.  
+<img src="images/website-screenshot.png" alt="website-screenshot.png" width="600"/>
 
-![Swagger UI Screenshot](path/to/swagger-screenshot.png)
-*Screenshot of the Swagger UI for API documentation.*
+Screenshot of the Swagger UI for API documentation.  
+<img src="images/swagger-screenshot.png" alt="swagger-screenshot.png" width="600"/>
 
 ## Tech Stack
 
