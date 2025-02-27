@@ -22,8 +22,17 @@ def query_articles(query_request: QueryRequest):
 
     dot_products = np.dot(query_embedding, embeddings.T).flatten()
 
-    top_k_indices = np.argsort(dot_products)[-query_request.top_k :][::-1]
+    sorted_indices = np.argsort(dot_products)[::-1]
 
-    results = [articles[i] for i in top_k_indices]
+    seen_titles = set()
+    unique_results = []
 
-    return {"articles": results}
+    for idx in sorted_indices:
+        article = articles[idx]
+        if article["title"] not in seen_titles:
+            unique_results.append(article)
+            seen_titles.add(article["title"])
+            if len(unique_results) == query_request.top_k:
+                break
+
+    return {"articles": unique_results}

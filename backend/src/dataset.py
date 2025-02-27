@@ -16,13 +16,11 @@ def extract_relevant_info(rss_uri):
 
     for entry in feed.entries:
         thumbnail = entry.get("media_content", [{"url": "No content"}])
-        print(thumbnail)
         description = entry.get("description", "No description")
         content = entry.get("content", [{"value": "No content"}])
         sanitized_content = sanitize_text_with_regex(
             content[0].get("value", "No content")
         )
-
         input_date = entry.get("published", "No date")
         input_date = datetime.strptime(input_date, "%a, %d %b %Y %H:%M:%S %z")
 
@@ -67,7 +65,6 @@ def create_dataset():
             all_embeddings.extend(embeddings)
         except Exception as e:
             raise HTTPException(status_code=404, detail="Error while creating dataset")
-            # print(f"An error occurred while parsing {uri}: {e}")
 
     embeddings_array = np.array(all_embeddings)
 
