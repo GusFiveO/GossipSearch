@@ -8,9 +8,7 @@ export function SearchBar() {
 
 
 	const sendQuery = (query: string) => {
-		// const apiUrl = process.env.API_URL as string
-		const apiUrl = "http://localhost:5050"
-		console.log("API_URL", apiUrl)
+		const apiUrl = process.env.REACT_APP_API_URL as string
 		fetch(`${apiUrl}/query/`, {
 			headers: {
 				"Content-Type": "application/json",

@@ -7,7 +7,6 @@ export function ArticlesList() {
 	const navigate = (url: string) => {
 		window.location.href = url
 	}
-	console.log(articles)
 
 	const articlesList = articles.map((item, index) => {
 		return (
