@@ -52,9 +52,9 @@ Screenshot of the Swagger UI for API documentation.
    ```
    
 2. **Build and Run Containers**:
-  ```bash
-  docker-compose up --build
-  ```
+   ```bash
+   docker-compose up --build
+   ```
 
 3. **Access the Application**
 - **Frontend**: Open your browser and navigate to `http://localhost:3000`.
