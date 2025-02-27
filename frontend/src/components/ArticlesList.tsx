@@ -20,6 +20,6 @@ export function ArticlesList() {
 			</li>
 		)
 	})
-	return <div className="grid grid-cols-2">{articlesList}</div>
+	return <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">{articlesList}</div>
 
 }
