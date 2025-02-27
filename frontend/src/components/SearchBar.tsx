@@ -40,7 +40,7 @@ export function SearchBar() {
 			className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
 			type="text"
 			id="search"
-			placeholder="Search something.."
+			placeholder="Search something..."
 			value={searchQuery}
 			onChange={(e) => setSearchQuery(e.target.value)}
 			onKeyDown={handleKeyDown} /> 
