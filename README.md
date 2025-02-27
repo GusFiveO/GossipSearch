@@ -31,6 +31,37 @@ Screenshot of the Swagger UI for API documentation.
   - **Use Case**: Ideal for applications requiring efficient and accurate information retrieval, such as search engines, question-answering systems, and recommendation systems.
 - **Docker**: Containerization for consistent deployment across environments.
 
+
+#### Routes
+
+The backend of the Gossip Search application provides the following routes to manage and query the dataset of articles:
+
+1. **`POST /create-dataset/`**
+
+  - **Description**: This route triggers the creation of the dataset by parsing multiple RSS feeds, embedding the articles, and storing them for semantic search.
+  - **Usage**: Call this endpoint to update or initialize the dataset with the latest articles from the specified RSS feeds.
+  - **Request**: No request body is needed.
+  - **Response**: Returns a message confirming the creation of the dataset along with the number of articles processed.
+
+2. **`POST /query/`**
+
+- **Description**: This route allows querying the dataset using semantic search. It takes a user query, embeds it, and retrieves the most relevant articles based on similarity.
+- **Usage**: Use this endpoint to search for articles related to a specific query.
+- **Request**:
+  - `query` (string): The search query provided by the user.
+  - `top_k` (integer, optional): The number of top results to return (default is 6).
+- **Response**: Returns a list of articles that match the query, sorted by relevance.
+
+Example Request Body for `/query/`
+
+```json
+{
+  "query": "latest news",
+  "top_k": 5
+}
+```
+
+
 ### Frontend
 
 - **React**: A JavaScript library for building user interfaces.
@@ -52,9 +83,9 @@ Screenshot of the Swagger UI for API documentation.
    ```
    
 2. **Build and Run Containers**:
-  ```bash
-  docker-compose up --build
-  ```
+   ```bash
+   docker-compose up --build
+   ```
 
 3. **Access the Application**
 - **Frontend**: Open your browser and navigate to `http://localhost:3000`.
@@ -76,3 +107,14 @@ Screenshot of the Swagger UI for API documentation.
 - **`ArticlesList.tsx`**: Component for displaying the list of articles.
 - **`SearchBar.tsx`**: Component for the search bar to input queries.
 - **`context.tsx`**: Context provider for managing global state.
+
+### Explanation of Environment Variables
+
+- **`API_PORT`**: This variable sets the port on which the backend API runs. You can change this port if needed.
+
+- **`API_HOST`**: This variable sets the host for the backend API. It is typically set to `localhost` for local development.
+
+- **`REACT_APP_API_URL`**: This variable sets the base URL for the backend API, constructed using `API_HOST` and `API_PORT`. The frontend uses this URL to make API requests.
+
+- **`FRONTEND_PORT`**: This variable sets the port on which the frontend application runs. You can modify this port if you need to run the frontend on a different port.
+
